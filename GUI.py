@@ -1,6 +1,7 @@
 import youtube_dl
 import time as time
 import os
+from os import system, name
 import subprocess
 from pathlib import Path
 
@@ -30,7 +31,7 @@ print(r"""  __   _______ _   _ _____ _   _______ _____  ______ _____  _    _ _  
     | | \ \_/ / |_| | | | | |_| | |_/ / |___  | |/ /\ \_/ /\  /\  / |\  || |___\ \_/ / | | | |/ /| |___| |\ \ 
     \_/  \___/ \___/  \_/  \___/\____/\____/  |___/  \___/  \/  \/\_| \_/\_____/\___/\_| |_/___/ \____/\_| \_|
     """)
-print("╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝ \n")
+print("╚═══════════════════════════════════════════Made By Jenk═════════════════════════════════════════════════════════╝ \n")
 
 a = input("\n What is the youtube videos URL? \n E.G: https://www.youtube.com/watch?v=dQw4w9WgXcQ \n →")
 
@@ -50,25 +51,29 @@ with youtube_dl.YoutubeDL(ydl_opts) as ydl:
          a, download=False)
     formats = meta.get('formats', [meta])
 for f in formats:
-    print("\n " + f["format_id"] + ": | " + f['ext'] + " - " +f["format_note"])
+    print("\n " + f["format_id"] + ": " + f['ext'] + " - " +f["format_note"])
  
 
 
 b = input("\n\n What is the format you would like to download in? (see above numbers) \n")
-print("Storing path as " + path)
+print("[YTDL] Storing path to download as " + path)
 try:
     with youtube_dl.YoutubeDL({'format': b, 'outtmpl':path + '/%(title)s.%(ext)s'}) as ydl:
         ydl.download([a])
         
 except:
-    print("\n\nThe youtube URL does not have this as an accepted format, review the video and check its accepted formats. \n Restarting in 5 seconds")
-
-time.sleep(5)
-print("\033[H\033[J")
-   
+    print("\n\nThe youtube URL does not have this as an accepted format, review the video and check its accepted formats. \n Restarting in 8 seconds")
 
 
+def clear():
 
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
 
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
 
-
+time.sleep(8)
+clear()
