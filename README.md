@@ -27,7 +27,7 @@ $ pip install youtube-dl
 
 ## Deployment
 
-> To start this program, simply open the batch file: [YTDL.bat](YTDL.bat)
+> To start this program, simply open the batch file: [YTDL](YTDL.bat)
 
 ## Built With
 
@@ -46,4 +46,4 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
